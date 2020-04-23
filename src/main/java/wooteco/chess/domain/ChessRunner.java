@@ -1,5 +1,6 @@
 package wooteco.chess.domain;
 
+import org.apache.commons.lang3.StringUtils;
 import wooteco.chess.dao.PieceOnBoard;
 import wooteco.chess.domain.board.Board;
 import wooteco.chess.domain.board.BoardScore;
@@ -10,7 +11,6 @@ import wooteco.chess.domain.position.Position;
 import wooteco.chess.domain.strategy.direction.Direction;
 import wooteco.chess.dto.BoardScoreDTO;
 import wooteco.chess.dto.TileDTO;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -123,10 +123,6 @@ public class ChessRunner {
 
     public boolean isEndChess() {
         return this.board.getWinner().isPresent();
-    }
-
-    public Map<String, String> getBoardEntities() {
-        return this.board.parse();
     }
 
     public String getCurrentTeam() {

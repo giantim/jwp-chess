@@ -1,10 +1,10 @@
 package wooteco.chess.domain;
 
-import wooteco.chess.dto.TileDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.dto.TileDTO;
 
 import java.util.List;
 

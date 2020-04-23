@@ -1,8 +1,8 @@
 package wooteco.chess.domain.strategy.direction;
 
-import wooteco.chess.domain.position.Position;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.domain.position.Position;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,10 +1,10 @@
 package wooteco.chess.domain.board;
 
-import wooteco.chess.domain.piece.*;
-import wooteco.chess.domain.position.Position;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.domain.piece.*;
+import wooteco.chess.domain.position.Position;
 
 import java.util.HashMap;
 import java.util.Map;

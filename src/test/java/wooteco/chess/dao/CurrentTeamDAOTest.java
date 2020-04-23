@@ -1,11 +1,11 @@
 package wooteco.chess.dao;
 
-import wooteco.chess.domain.piece.Team;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.domain.piece.Team;
 
 public class CurrentTeamDAOTest {
     private CurrentTeamDAO currentTeamDAO;

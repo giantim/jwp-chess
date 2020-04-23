@@ -1,9 +1,9 @@
 package wooteco.chess.domain.piece;
 
-import wooteco.chess.domain.position.Position;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.domain.position.Position;
 
 public class KingTest {
     @DisplayName("킹이 이동 가능한 곳인지 검사")

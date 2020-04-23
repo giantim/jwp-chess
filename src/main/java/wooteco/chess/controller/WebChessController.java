@@ -1,5 +1,7 @@
 package wooteco.chess.controller;
 
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 import wooteco.chess.dao.ChessBoard;
 import wooteco.chess.dao.CustomSQLException;
 import wooteco.chess.dao.Player;
@@ -7,8 +9,6 @@ import wooteco.chess.dto.MoveResultDTO;
 import wooteco.chess.dto.TeamDTO;
 import wooteco.chess.dto.TileDTO;
 import wooteco.chess.service.ChessService;
-import spark.ModelAndView;
-import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
 import java.util.List;

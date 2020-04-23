@@ -1,13 +1,13 @@
 package wooteco.chess.domain.board;
 
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import wooteco.chess.domain.piece.Pawn;
 import wooteco.chess.domain.piece.Piece;
 import wooteco.chess.domain.piece.PieceType;
 import wooteco.chess.domain.piece.Team;
 import wooteco.chess.domain.position.Position;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 import java.util.*;
 

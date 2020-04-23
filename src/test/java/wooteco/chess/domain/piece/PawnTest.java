@@ -1,9 +1,9 @@
 package wooteco.chess.domain.piece;
 
-import wooteco.chess.domain.position.Position;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wooteco.chess.domain.position.Position;
 
 public class PawnTest {
     @DisplayName("흰색 폰이 시작 위치에서 두 칸 이동")
