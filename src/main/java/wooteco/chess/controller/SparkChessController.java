@@ -8,7 +8,7 @@ import wooteco.chess.dao.Player;
 import wooteco.chess.dto.MoveResultDTO;
 import wooteco.chess.dto.TeamDTO;
 import wooteco.chess.dto.TileDTO;
-import wooteco.chess.service.ChessService;
+import wooteco.chess.service.SparkChessService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.Map;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-public class WebChessController {
-    private ChessService chessService;
+public class SparkChessController {
+    private SparkChessService sparkChessService;
 
     public void playChess() {
-        this.chessService = new ChessService();
+        this.sparkChessService = new SparkChessService();
 
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -39,7 +39,7 @@ public class WebChessController {
             Map<String, Object> model = new HashMap<>();
 
             try {
-                List<Player> players = this.chessService.players();
+                List<Player> players = this.sparkChessService.players();
 
                 model.put("gameData", players);
 
@@ -58,10 +58,10 @@ public class WebChessController {
 
             try {
                 Player player = new Player(whitePlayer, blackPlayer);
-                this.chessService.newGame(player);
-                List<TileDTO> tileDtos = this.chessService.getTiles();
-                TeamDTO teamDto = this.chessService.getCurrentTeam();
-                ChessBoard chessBoard = this.chessService.getRecentChessBoard();
+                this.sparkChessService.newGame(player);
+                List<TileDTO> tileDtos = this.sparkChessService.getTiles();
+                TeamDTO teamDto = this.sparkChessService.getCurrentTeam();
+                ChessBoard chessBoard = this.sparkChessService.getRecentChessBoard();
 
                 model.put("tiles", tileDtos);
                 model.put("currentTeam", teamDto);
@@ -81,10 +81,10 @@ public class WebChessController {
             int chessBoardId = Integer.parseInt(req.queryParams("chess-board-id"));
 
             try {
-                this.chessService.continueGame(chessBoardId);
-                List<TileDTO> tileDtos = this.chessService.getTiles();
-                TeamDTO teamDto = this.chessService.getCurrentTeam();
-                Player player = this.chessService.getPlayer(chessBoardId);
+                this.sparkChessService.continueGame(chessBoardId);
+                List<TileDTO> tileDtos = this.sparkChessService.getTiles();
+                TeamDTO teamDto = this.sparkChessService.getCurrentTeam();
+                Player player = this.sparkChessService.getPlayer(chessBoardId);
                 ChessBoard chessBoard = new ChessBoard(chessBoardId);
 
                 model.put("tiles", tileDtos);
@@ -107,10 +107,10 @@ public class WebChessController {
             String target = req.queryParams("target");
 
             try {
-                MoveResultDTO moveResultDto = this.chessService.move(chessBoardId, source, target);
-                List<TileDTO> tileDtos = this.chessService.getTiles();
-                TeamDTO teamDto = this.chessService.getCurrentTeam();
-                Player player = this.chessService.getPlayer(chessBoardId);
+                MoveResultDTO moveResultDto = this.sparkChessService.move(chessBoardId, source, target);
+                List<TileDTO> tileDtos = this.sparkChessService.getTiles();
+                TeamDTO teamDto = this.sparkChessService.getCurrentTeam();
+                Player player = this.sparkChessService.getPlayer(chessBoardId);
                 ChessBoard chessBoard = new ChessBoard(chessBoardId);
 
                 model.put("tiles", tileDtos);
@@ -120,8 +120,8 @@ public class WebChessController {
                 model.put("player", player);
                 model.put("chessBoard", chessBoard);
 
-                if (this.chessService.isEndGame()) {
-                    this.chessService.deleteChessGame(chessBoardId);
+                if (this.sparkChessService.isEndGame()) {
+                    this.sparkChessService.deleteChessGame(chessBoardId);
                     return render(model, "end.html");
                 }
                 return render(model, "game.html");
@@ -137,10 +137,10 @@ public class WebChessController {
             int chessBoardId = Integer.parseInt(req.queryParams("chess-board-id-status"));
 
             try {
-                List<TileDTO> tileDtos = this.chessService.getTiles();
-                TeamDTO teamDto = this.chessService.getCurrentTeam();
-                String message = this.chessService.getScores();
-                Player player = this.chessService.getPlayer(chessBoardId);
+                List<TileDTO> tileDtos = this.sparkChessService.getTiles();
+                TeamDTO teamDto = this.sparkChessService.getCurrentTeam();
+                String message = this.sparkChessService.getScores();
+                Player player = this.sparkChessService.getPlayer(chessBoardId);
                 ChessBoard chessBoard = new ChessBoard(chessBoardId);
 
                 model.put("tiles", tileDtos);
@@ -162,8 +162,8 @@ public class WebChessController {
             int chessBoardId = Integer.parseInt(req.queryParams("chess-board-id-end"));
 
             try {
-                this.chessService.deleteChessGame(chessBoardId);
-                String message = this.chessService.getScores();
+                this.sparkChessService.deleteChessGame(chessBoardId);
+                String message = this.sparkChessService.getScores();
 
                 model.put("message", message);
 

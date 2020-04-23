@@ -10,7 +10,7 @@ import wooteco.chess.dto.TileDTO;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ChessService {
+public class SparkChessService {
     private static final String MESSAGE_STYLE_BLACK = "color:black;";
     private static final String MESSAGE_STYLE_RED = "color:red;";
     private static final String ARROW = " -> ";
